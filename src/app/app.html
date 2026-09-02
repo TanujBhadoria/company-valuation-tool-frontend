@@ -1,0 +1,8 @@
+<h1>Company Valuation Tool</h1>
+
+<h2>Companies</h2>
+<ul>
+  <li *ngFor="let company of companies">
+    {{ company.ticker }} - {{ company.name }} (Revenue: {{ company.revenue }})
+  </li>
+</ul>
