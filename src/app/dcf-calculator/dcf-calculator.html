@@ -1,0 +1,50 @@
+<div class ="dcf-container">
+    <h2>DCF Valuation Calculator</h2>
+
+    <div class="form-group">
+    <label>Ticker</label>
+    <input [(ngModel)]="ticker" placeholder="e.g. AAPL" />
+    </div>
+    
+    <div class = "form-group">
+        <label>Growth Rate (e.g. 0.08 for 8%)</label>
+        <input type="number" step="0.01" [(ngModel)]="growthRate"/>
+    </div>
+
+    <div class = "form-group">
+        <label>WACC (e.g. 0.10 for 10%)</label>
+        <input type="number" step="0.01" [(ngModel)]="wacc">
+    </div>
+
+    <div class="form-group">
+    <label>Terminal Growth Rate (e.g. 0.025 for 2.5%)</label>
+    <input type="number" step="0.001" [(ngModel)]="terminalGrowthRate" />
+    </div>
+
+    <div class="form-group">
+    <label>Projection Years</label>
+    <input type="number" [(ngModel)]="projectionYears" />
+    </div>
+
+    <div class="form-group">
+    <label>Net Debt</label>
+    <input type="number" [(ngModel)]="netDebt" />
+    </div>
+
+    <button (click)="calculate()">Calculate</button>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <div *ngIf="result" class="result">
+    <h3>Results for {{ result.ticker }}</h3>
+    <p><strong>Enterprise Value:</strong> {{ result.enterpriseValue | number:'1.0-0' }}</p>
+    <p><strong>Equity Value:</strong> {{ result.equityValue | number:'1.0-0' }}</p>
+    <p><strong>Price per Share:</strong> {{ result.pricePerShare | number:'1.2-2' }}</p>
+
+    <h4>Projected FCFs</h4>
+    <ul>
+      <li *ngFor="let fcf of result.projectedFCFs; let i = index">
+        Year {{ i + 1 }}: {{ fcf | number:'1.0-0' }}
+      </li>
+    </ul>
+  </div>    
+</div>
