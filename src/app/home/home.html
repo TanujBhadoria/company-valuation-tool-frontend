@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Companies</h1>
+
+  <div class="company-grid">
+    <div class="company-card" *ngFor="let company of companies">
+      <div class="card-header">
+        <span class="ticker">{{ company.ticker }}</span>
+        <span class="name">{{ company.name }}</span>
+      </div>
+      <div class="card-body">
+        <p>Revenue: {{ company.revenue | number }}</p>
+        <p>EBITDA: {{ company.ebitda | number }}</p>
+      </div>
+      <a class="dcf-link" [routerLink]="['/dcf', company.ticker]">Run DCF →</a>
+    </div>
+  </div>
+
+  <a routerLink="/add-company" class="add-btn">+ Add New Company</a>
+</div>

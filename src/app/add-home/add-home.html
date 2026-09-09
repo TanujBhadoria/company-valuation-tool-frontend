@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h2>Add New Company</h2>
+
+  <div class="form-group">
+    <label>Ticker</label>
+    <input [(ngModel)]="ticker" placeholder="e.g. AAPL" />
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input [(ngModel)]="name" placeholder="e.g. Apple Inc" />
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Revenue</label>
+      <input type="number" [(ngModel)]="revenue" />
+    </div>
+    <div class="form-group">
+      <label>EBITDA</label>
+      <input type="number" [(ngModel)]="ebitda" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Net Income</label>
+      <input type="number" [(ngModel)]="netIncome" />
+    </div>
+    <div class="form-group">
+      <label>Shares Outstanding</label>
+      <input type="number" [(ngModel)]="sharesOutStanding" />
+    </div>
+  </div>
+
+  <button class="submit-btn" (click)="submit()">Add Company</button>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <a routerLink="/" class="back-link">← Back to Home</a>
+</div>

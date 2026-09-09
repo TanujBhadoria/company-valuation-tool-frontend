@@ -1,0 +1,17 @@
+<div class="auth-container">
+    <h2>Register</h2>
+    <div class="form-group">
+        <label>Username</label>
+        <input [(ngModel)]="username" placeholder="Choose a Username">
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type = "password" [(ngModel)]="password" placeholder="Choose a Password">
+    </div>
+
+    <button class="auth-btn"  (click)="submit()">Register</button>
+    <div *ngIf = "errorMessage" class="error">{{ errorMessage }}</div>
+
+  <p class="switch-link">Already have an account? <a routerLink="/login">Login</a></p>
+</div>
