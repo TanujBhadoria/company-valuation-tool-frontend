@@ -11,7 +11,7 @@ export class AuthService {
   private tokenKey = 'auth_token';
 
   constructor(private http : HttpClient){}
-
+//register function
   register(request: AuthRequest): Observable<AuthResponse>{
     return this.http.post<AuthResponse>(`s${this.baseUrl}/register`,request).pipe(
       tap(response => this.saveToken(response.token))
